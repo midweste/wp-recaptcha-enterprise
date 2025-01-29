@@ -1,0 +1,16 @@
+{
+  "name": "midweste/wp-recaptcha-enterprise",
+  "description": "Wordpress Recaptcha Enterprise",
+  "type": "wordpress-plugin",
+  "require": {
+    "php": ">=7.2",
+    "mehrshaddarzi/wp-trait": "^1.0"
+  },
+  "require-dev": {},
+  "autoload": {
+    "psr-4": {
+      "WordpressRecaptchaEnterprise\\": "src/"
+    }
+  },
+  "extra": {}
+}
