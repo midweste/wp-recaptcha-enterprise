@@ -27,7 +27,19 @@ namespace WordpressRecaptchaEnterprise;
  * Requires Plugins:  wp-trait-mu
  */
 
-file_exists(__DIR__ . '/vendor/autoload.php') && require_once __DIR__ . '/vendor/autoload.php';
+spl_autoload_register(function ($class) {
+    $prefix = 'WordpressRecaptchaEnterprise\\';
+    $base_dir = __DIR__ . '/src/';
+    if (strncmp($prefix, $class, strlen($prefix)) !== 0) {
+        return;
+    }
+    $file = $base_dir . str_replace('\\', '/', substr($class, strlen($prefix))) . '.php';
+    if (file_exists($file)) {
+        require $file;
+    }
+});
+
+// file_exists(__DIR__ . '/vendor/autoload.php') && require_once __DIR__ . '/vendor/autoload.php';
 
 use WPTrait\Plugin;
 
